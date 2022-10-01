@@ -47,6 +47,11 @@ function arrayToText(myArray) {
     let text = "";
     for (let i = 0; i < myArray.length; i++) {
         if(i == myArray.length-1){
+            if(myArray.length > 4){
+                fullArrayLabel.style.height = "65px";
+                arrayLabel.style.height = "45px";
+                //work in progress.. would be great to auto-resize.
+            }
             text += myArray[i] + "."
         } else {
             text += myArray[i] + ", ";
@@ -87,3 +92,5 @@ function whenClicked() {
         taskInput.value = "";
     }
 }
+
+
