@@ -1,3 +1,5 @@
+const inputLabel = document.getElementById("inputField");
+const taskInput = document.getElementById("task");
 const button = document.getElementById("addTask");
 const list = document.getElementById("taskList");
 const countingLabel = document.getElementById("counter");
@@ -12,8 +14,51 @@ let doneTasksCounter = 0;
 let taskArray = [];
 let arrayLastPoss = 0;
 
+
+countingLabel.textContent = counterText + doneTasksCounter;
+button.textContent = "Add task";
+inputLabel.textContent = "Input :";
+arrayLabel.textContent = arrayText + "none";
+fullArrayLabel.textContent = fullArrayText + "none";
+
+taskInput.addEventListener("keypress", function (ev) {
+    if (ev.key === "Enter") {
+        button.click();
+    }
+});
+
 button.onclick = function () {
-    const taskInput = document.getElementById("task");
+    whenClicked();
+}
+
+list.addEventListener("click", function (ev) {
+    if (ev.target.tagName === "LI") {
+        if (ev.target.classList.toggle("checked")) {
+            ++doneTasksCounter;
+            countingLabel.textContent = counterText + doneTasksCounter;
+        } else {
+            --doneTasksCounter;
+            countingLabel.textContent = counterText + doneTasksCounter;
+        };
+    }
+}, false);
+
+function arrayToText(myArray) {
+    let text = "";
+    for (let i = 0; i < myArray.length; i++) {
+        if(i == myArray.length-1){
+            text += myArray[i] + "."
+        } else {
+            text += myArray[i] + ", ";
+        }
+    } if(text==""){
+        text = "none";
+    }
+    return text;
+}
+
+
+function whenClicked() {
     if (taskInput.value < 1) {
         alert("You need to write something first!");
     } else {
@@ -41,24 +86,4 @@ button.onclick = function () {
         arrayLabel.textContent = arrayText + arrayToText(taskArray);
         taskInput.value = "";
     }
-}
-list.addEventListener("click", function (ev) {
-    if (ev.target.tagName === "LI") {
-        if (ev.target.classList.toggle("checked")) {
-            ++doneTasksCounter;
-            countingLabel.textContent = counterText + doneTasksCounter;
-        } else {
-            --doneTasksCounter;
-            countingLabel.textContent = counterText + doneTasksCounter;
-        };
-    }
-}, false);
-
-
-function arrayToText(myArray){
-    let text = "";
-    for(let i = 0; i < myArray.length; i ++){
-        text += myArray[i] + ", ";
-    }
-    return text;
 }

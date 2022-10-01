@@ -13,7 +13,7 @@ h1 {
     width: 445px;
     height: 30px;
     text-align: center;
-    display:inline-block
+    display:inline-block;
 }
 
 #array, #fullArray {
@@ -23,7 +23,7 @@ h1 {
     width: 445px;
     height: 30px;
     text-align: center;
-    display:inline-block
+    display:inline-block;
 }
 
 ul {
