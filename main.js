@@ -91,7 +91,7 @@ function whenClicked() {
             const index = taskArray.indexOf(newTask.textContent);
             taskArray.splice(index, 1);
             arrayLastPoss--;
-            if (counter > 0) {
+            if (counter > 0 && !newTask.classList.toggle("checked")) {
                 --counter;
                 currentCounting.textContent = currentCounter + counter;
             }
