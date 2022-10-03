@@ -6,24 +6,26 @@ h1 {
     text-align: center;
 }
 
-#counter {
+#counter,
+#current-counter {
     color: green;
     background-color: #eee;
     font-size: 20px;
     width: 445px;
     height: 30px;
     text-align: center;
-    display:inline-block;
+    display: inline-block;
 }
 
-#array, #fullArray {
+#array,
+#fullArray {
     color: black;
     background-color: #eee;
     font-size: 20px;
     width: 445px;
     height: 30px;
     text-align: center;
-    display:inline-block;
+    display: inline-block;
 }
 
 ul {
@@ -70,4 +72,4 @@ ul li.checked::before {
     transform: rotate(45deg);
     height: 15px;
     width: 7px;
-  }
+}
